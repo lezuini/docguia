@@ -1,0 +1,57 @@
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  label {
+    gap: 0.5rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    span {
+      line-height: 1.25rem;
+      font-weight: 500;
+      font-size: 0.875rem;
+    }
+
+    input,
+    textarea {
+      border: 1px solid hsl(var(--input));
+      border-radius: 10px;
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+      height: 40px;
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      background-color: hsl(var(--background));
+
+      &:focus-visible {
+        outline-color: hsl(var(--accent));
+      }
+
+      &::placeholder {
+        color: #67778d;
+        opacity: 1;
+      }
+    }
+
+    textarea {
+      height: auto;
+      min-height: 80px;
+    }
+
+    p {
+      color: rgb(107 114 128);
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+  }
+}

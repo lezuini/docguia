@@ -1,0 +1,40 @@
+.main {
+  height: 40px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: hsl(var(--primary-foreground));
+  background-color: hsl(var(--primary));
+  border-radius: 10px;
+  gap: 1rem;
+  cursor: pointer;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+
+  transition-property: background-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.15s;
+
+  svg {
+    height: 1rem;
+    width: 1rem;
+  }
+
+  span {
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    white-space: nowrap;
+  }
+
+  &:hover {
+    background-color: hsl(var(--primary) / 0.9);
+  }
+
+  &:focus-visible {
+    outline-color: hsl(var(--accent));
+  }
+}
