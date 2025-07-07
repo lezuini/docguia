@@ -7,6 +7,7 @@ import { BigButton } from "./BigButton";
 import { Input } from "./Input";
 import { CustomSelect } from "./CustomSelect";
 import { Toggle } from "./Toggle";
+import { useState } from "react";
 
 const cities = ["Caracas", "Maracay", "Valencia", "Barquisimeto", "Maracaibo"];
 const numbers = ["🇻🇪 +58", "🇺🇸 +1", "🇨🇴 +57"];
@@ -18,6 +19,7 @@ interface Props {
 }
 
 export const DoctorsOfficeForm = ({ edit }: Props) => {
+  const [active, setActive] = useState(false);
   return (
     <div className={s.main}>
       <div className={s.nav}>
@@ -88,7 +90,7 @@ export const DoctorsOfficeForm = ({ edit }: Props) => {
         <div className={s.bottom}>
           <span className={s.minutes}>Recibir notificación por WhatsApp cuando se agende una cita</span>
 
-          <Toggle active setActive={() => {}} />
+          <Toggle active={active} setActive={setActive} />
         </div>
       </div>
 
