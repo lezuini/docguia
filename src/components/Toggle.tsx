@@ -7,7 +7,7 @@ interface Props {
 
 export const Toggle = ({ active, setActive }: Props) => {
   return (
-    <button className={`${s.main} ${active ? s.active : ""}`} onClick={() => setActive((c: boolean) => !c)}>
+    <button className={`${s.main} ${active ? s.active : ""}`} onClick={setActive} type="button">
       <span />
     </button>
   );

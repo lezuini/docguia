@@ -28,7 +28,7 @@ export const SignupForm = () => {
             const response = await signInMedico(user, password);
 
             if (response.success) {
-              toast.success("Usuario autenticado:", response.user);
+              toast.success("Usuario autenticado");
 
               if (typeof window !== "undefined") {
                 localStorage.setItem("fullname", response.fullname);

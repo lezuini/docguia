@@ -1,4 +1,4 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
 // Helper para fetch
 const fetchAPI = async (endpoint, options = {}) => {
@@ -12,7 +12,11 @@ const fetchAPI = async (endpoint, options = {}) => {
 
   if (!res.ok) {
     const error = await res.json();
-    throw new Error(error.error || "Error en la solicitud");
+
+    return {
+      success: false,
+      error: error.error || "Error en la solicitud",
+    };
   }
 
   return res.json();
@@ -51,6 +55,17 @@ export const createConsultorio = async (consultorioData) => {
   });
 };
 
-export const getConsultorios = async () => {
+export const editConsultorio = async (consultorioData) => {
+  return fetchAPI("/api/consultorios/edit", {
+    method: "PUT",
+    body: JSON.stringify(consultorioData),
+  });
+};
+
+export const getAllConsultorios = async () => {
   return fetchAPI("/api/consultorios/get");
+};
+
+export const getConsultorio = async (id) => {
+  return fetchAPI(`/api/consultorios/get/${id}`);
 };

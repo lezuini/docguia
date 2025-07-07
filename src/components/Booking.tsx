@@ -13,7 +13,12 @@ export const Booking = () => {
 
       <span>Reserva Online {!active ? "No" : ""} Disponible</span>
 
-      <Toggle active={active} setActive={setActive} />
+      <Toggle
+        active={active}
+        setActive={() => {
+          setActive((c) => !c);
+        }}
+      />
     </div>
   );
 };

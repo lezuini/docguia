@@ -10,13 +10,13 @@ interface Props {
 
 export const Button = ({ icon, text, href = "", callback }: Props) => {
   return callback ? (
-    <button className={s.main} onClick={callback}>
+    <button className={s.main} onClick={callback} type="button">
       {icon}
 
       <span>{text}</span>
     </button>
   ) : (
-    <Link href={href} className={s.main}>
+    <Link href={href} className={s.main} type="button">
       {icon}
 
       <span>{text}</span>

@@ -1,6 +1,8 @@
-import { supabase } from "../../../../lib/supabase";
+import { supabase } from "../../../../../lib/supabase";
 
-export async function GET(request) {
+export async function GET(request, { params }) {
+  const { id } = await params;
+
   try {
     const {
       data: { user },
@@ -16,7 +18,7 @@ export async function GET(request) {
       );
     }
 
-    const { data, error } = await supabase.from("consultorios").select("*").eq("medico_id", user.id);
+    const { data, error } = await supabase.from("consultorios").select("*").eq("medico_id", user.id).eq("id", id);
 
     if (error) {
       return Response.json(
@@ -30,9 +32,11 @@ export async function GET(request) {
 
     return Response.json({
       success: true,
-      consultorios: data,
+      data: data[0],
     });
   } catch (error) {
+    console.log(error.message);
+
     return Response.json(
       {
         success: false,

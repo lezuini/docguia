@@ -4,12 +4,13 @@ import { Booking } from "./Booking";
 import { Button } from "./Button";
 
 interface Props {
+  id: string;
   name: string;
   location: string;
   hours: string;
 }
 
-export const DoctorsOfficeCard = ({ name, location, hours }: Props) => {
+export const DoctorsOfficeCard = ({ id, name, location, hours }: Props) => {
   return (
     <div className={s.main}>
       <div className={s.top}>
@@ -26,9 +27,9 @@ export const DoctorsOfficeCard = ({ name, location, hours }: Props) => {
         </div>
 
         <div className={s.buttons}>
-          <Button icon={<SquarePen />} text="Editar consultorio" href={`/consultorios/${1}/editar`} />
+          <Button icon={<SquarePen />} text="Editar consultorio" href={`/consultorios/${id}/editar`} />
 
-          <Button icon={<ExternalLink />} text="Editar disponibilidad" href={`/consultorios/${1}/disponibilidad`} />
+          <Button icon={<ExternalLink />} text="Editar disponibilidad" href={`/consultorios/${id}/disponibilidad`} />
         </div>
       </div>
 

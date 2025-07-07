@@ -25,7 +25,7 @@ export const DayScheduleCard = ({ day, abrev, startsActive }: Props) => {
     <div className={s.main}>
       <div className={s.top}>
         <div className={s.left}>
-          <Toggle active={active} setActive={setActive} />
+          <Toggle active={active} setActive={() => setActive((c) => !c)} />
 
           <div className={s.spans}>
             <span>{day}</span>

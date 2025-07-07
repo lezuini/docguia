@@ -3,15 +3,17 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 interface Props {
   placeholder: string;
   options: string[];
+  value: string;
   setValue: any;
 }
 
-export const CustomSelect = ({ placeholder, options, setValue }: Props) => {
+export const CustomSelect = ({ placeholder, options, value, setValue }: Props) => {
   return (
     <Select
       onValueChange={(v) => {
         setValue(v);
       }}
+      value={value}
     >
       <SelectTrigger>
         <SelectValue placeholder={placeholder} />
