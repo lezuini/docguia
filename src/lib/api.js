@@ -1,11 +1,18 @@
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
 
+const headers = {
+  "Access-Control-Allow-Origin": "*", // or your specific domain
+  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, Authorization",
+};
+
 // Helper para fetch
 const fetchAPI = async (endpoint, options = {}) => {
   const res = await fetch(`${API_URL}${endpoint}`, {
     headers: {
       "Content-Type": "application/json",
       ...options.headers,
+      ...headers,
     },
     ...options,
   });
